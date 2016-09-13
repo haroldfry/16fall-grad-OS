@@ -54,7 +54,95 @@
 Due: & Sep 22, 2016\\ 
 \end{tabular}
 \end{center}
-\nocite{*}
+
+\section{References Description}
+
+In this section, we briefly describ the main idea of each paper, the detail information of each
+paper can be found in the \textbf{Refernece} section.
+
+\subsection{Paper from 1980 and before}
+
+\textbf{Journal Article} \emph{Survey of virtual machine research}\cite{goldberg1974survey} One
+of the best and earliest paper discuess the Virtual Machine. There is no reason to ignore this paper  
+In this paper, author describe the principles, implementation details and practices of the first
+generation of virtual machine that is ready to be put into industry field. In order to realize the
+base idea of virtual machine, this paper is worth to study. 
+
+\subsection{Paper from 1990}
+
+\subsection{Paper from 2000}
+
+\textbf{Journal Article} \emph{Virtual machine monitors: Current technology and future trends}
+\cite{rosenblum2005virtual}. This is a survey paper introduces the history and details of virtual 
+machine(VM) monitor. It describes the motivation of developing VM monitor and implementation 
+issues, like CPU virtualization, memory virtualization, I/O virtualization and security issue. The
+author also talks about the future trend of the VM monitor. VM as a hardware level virtualization
+technology share various ideas with Container, the OS level virtualization technology is worth 
+digging through. This paper would be helpful for me to understand the implementation details of VM 
+monitor and how do they influence performance.
+
+\medskip
+
+\textbf{Conference Article} \emph{Solaris Zones: Operating System Support for Consolidating 
+Commercial Workloads}\cite{price2004solaris}. This paper introduce the Solaris Zones, the 
+virtualization technology developed by Sun Microsystems, Inc. As one of the inchoate OS 
+level virtualization runtime, Solaris Zones and Current container runtimes share many common 
+ideas, like namespace isolation. This paper is important for understanding how container 
+work internally by applying namespace isolation facilities.
+
+\medskip
+
+\textbf{Conference Article} \emph{Quantifying the performance isolation properties of virtualization 
+systems}\cite{matthews2007quantifying}.
+
+\medskip
+
+\textbf{Conference Article} \emph{kvm: the Linux virtual machine monitor}\cite{kivity2007kvm}. 
+In this paper, the author intorduced the Kernel-based Virtual Machine (kvm), which take advantages of
+x86 virtualization extension to implement a virtual machine monitor for Linux system. This 
+paper show the general ideas of how to virtualize MMU, I/O, CPU and memory on the Linux system.
+Since we are planning to running the benchmark on Unix like system, reading this paper can help us 
+understand what cause the overhead of running VM.
+
+\subsection{Paper from 2010}
+
+\textbf{Journal Article} \emph{Updated Performance Comparison of Virtual Machines and Linux 
+Containers}\cite{felter2014updated}. In this paper, the author compare the performance of 
+native, container(i.e. Docker) and virtual machine environments using recent hardware and common 
+used software. We are planning to conduct same kind of benchmarks on one more configuration
+(i.e. host OS with namespace isolation). This paper is worth to read and several benchmarks 
+design principles are worth to refer.
+
+\medskip
+
+\textbf{Journal Article} \emph{Analysis of docker security}\cite{bui2015analysis}. This paper 
+discuss the potential security issue of the Docker container runtime. It also introduces the 
+isolation facilities of Docker. We now know that compare to virtual machine, container runtime 
+has lower performance overheads. But does that demands at the cost of security? We will return to
+read this paper and figure out the solution. 
+
+\medskip
+
+\textbf{Conference Article} \emph{Performance evaluation of container-based virtualization for 
+high performance computing environments}\cite{xavier2013performance}
+
+\medskip
+
+\textbf{Conference Article} \emph{Power Consumption of Virtualization Technologies: an 
+Empirical Investigation}\cite{morabito2015power}
+
+\medskip
+
+\textbf{Webpage} \emph{CoreOS is building a container runtime, Rocket}\cite{rocketwb}
+
+\medskip
+
+\textbf{Webpage} \emph{Docker project official website}\cite{dockerwb}
+
+\medskip
+
+\textbf{Webpage} \emph{Project Atomic}\cite{RHELatomic}
+
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
