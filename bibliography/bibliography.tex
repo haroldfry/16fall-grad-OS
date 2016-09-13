@@ -133,15 +133,41 @@ Empirical Investigation}\cite{morabito2015power}
 
 \medskip
 
-\textbf{Webpage} \emph{CoreOS is building a container runtime, Rocket}\cite{rocketwb}
+\textbf{Webpage} \emph{Docker project official website}\cite{dockerwb}. This is the official 
+Docker website. You can find almost every thing you need to know for using Docker, from 
+general idea to implementation details.  There are several reasons for us to choose Docker,
+\begin{itemize}
+    \item Docker as one of the most popular container runtime, it is open source, well supported 
+        and well documented.
+    \item The public Docker registry is used by many users, thus we have wide range of 
+        container images to choose.
+    \item It is will developed, which means we can focus on the general ideas of container technology
+        instead of implementation details.
+\end{itemize}
+This website should be treated as one of the main reference for conducting experiments on Docker 
+container.
 
 \medskip
 
-\textbf{Webpage} \emph{Docker project official website}\cite{dockerwb}
+\textbf{Webpage} \emph{CoreOS is building a container runtime, Rocket}\cite{rocketwb}. Rocket is
+a new container runtime developed by people from CoreOS. Since Docker have been adopted in many 
+fields, like cloud servers launching, building systems for clustering, it includes a wide range
+of functions like building images, running images, uploading and even overlay networking. It has 
+become heave-weight and more like a platform instead of a container runtime. Not like Docker 
+container, Rocket focus on features like composable, security, easily distribution and open. Since 
+we are going to benchmark the performance of Docker, it is worth reading this website to understand
+how Rocket different from docker and how Rocket avoid the overheads.
 
 \medskip
 
-\textbf{Webpage} \emph{Project Atomic}\cite{RHELatomic}
+\textbf{Webpage} \emph{Singularity: Extreme Mobility of Compute}\cite{singularity}. One of the 
+limitations of Docker runtime is that only privileged users have the right to launch a native
+container environment. Singularity breaks this limitation and focus on features like portability 
+and reproducibility. And the inventor claim that Singularity can fit HPC workflow better 
+than other container runtimes. We plan to benchmark the performance of Singularity and compare 
+it with Docker. It is worth to know if Singularity imposes any overheads with the capability to 
+launch container without privilege.  
+
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
