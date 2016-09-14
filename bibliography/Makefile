@@ -20,4 +20,4 @@ $(NAME).pdf: $(NAME).tex ${GRAPHS}
 	convert $< $@
 
 clean:
-	rm *.aux *.pdf *.log *.out *.bbl *.blg
+	@rm *.aux *.pdf *.log *.out *.bbl *.blg

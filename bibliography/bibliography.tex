@@ -38,8 +38,13 @@
 %	DOCUMENT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title{Case Study: Linux Container Runtime Benchmarks \\ Graduate Operating System \\ CSE 60641} % Title
-
+\title{{\textbf{Virtual Machine vs. Container Runtimes: Performance Comparison}} \\
+       \vspace{3\baselineskip}
+       {\large Bibliography List} \\
+       \vspace{3\baselineskip}
+       {\large Graduate Operating System} \\ 
+       {\large CSE 60641} % Title
+      }
 %\author{John \textsc{Smith}} % Author name
 
 \date{\today} % Date for the report
@@ -51,19 +56,21 @@
 
 \begin{center}
 \begin{tabular}{l r}
-Due: & Sep 22, 2016\\ 
+Due:& September 15, 2016\\ 
 \end{tabular}
 \end{center}
 
+\pagebreak
+
 \section{References Description}
 
-In this section, we briefly describ the main idea of each paper, the detail information of each
-paper can be found in the \textbf{Refernece} section.
+In this section, we briefly describe the main idea of each paper, the detail information of each
+paper can be found in the \textbf{Reference} section.
 
 \subsection{Paper from 1980 and before}
 
 \textbf{Journal Article} \emph{Survey of virtual machine research}\cite{goldberg1974survey} One
-of the best and earliest paper discuess the Virtual Machine. There is no reason to ignore this paper  
+of the best and earliest paper discuss the Virtual Machine. There is no reason to ignore this paper  
 In this paper, author describe the principles, implementation details and practices of the first
 generation of virtual machine that is ready to be put into industry field. In order to realize the
 base idea of virtual machine, this paper is worth to study. 
@@ -79,7 +86,16 @@ is worth reading.
 \subsection{Paper from 1990}
 
 \textbf{Conference Article} \emph{Using Microbenchmarks To Evaluate System Performance}
-\cite{bershad1992using}
+\cite{bershad1992using}. This is a brief but very interesting paper. The author point out two 
+assumptions underlie the use of microbenchmarks.
+\begin{itemize}
+    \item The execution time of code path for microbenchmark and real programs are same or at least 
+        similar.
+    \item The microbenchmarks are somehow represent something important to the overall 
+        system performance.
+\end{itemize}
+The author discusses cache and write buffer when considering I/O performance to show he vulnerability
+of the first assumption and identify weaknesses in the second assumption.
 
 \medskip
 
@@ -94,7 +110,7 @@ citation of this paper caught my eye.
 \medskip
 
 \textbf{Conference Article} \emph{Hypervisor-based fault tolerance}\cite{bressoud1995hypervisor}.
-This paper presents the idea of implementing a fault-tolerence system that has a replica system 
+This paper presents the idea of implementing a fault-tolerance system that has a replica system 
 managed by virtual machine hypervisor. When the main system is down the replica can be used to 
 replace it. The idea presented in the paper is another use of virtual machine other than 
 resource sharing.
@@ -114,19 +130,23 @@ a position paper. Author argues that most applications and OS currently running 
 should relocate into a virtual machine. Consider about the overheads of traditional virtual machine,
 it is impossible. But with the arise of container technology, some OS, like CoreOS, is running 
 every application inside a private container. It is interesting to know when did people first think 
-about running applications on highly virtualized machine.
+about running applications on highly virtual machine.
 
 \medskip
 
 \textbf{Conference Article} \emph{The design and implementation of Zap: A system for migrating 
-computing environments}\cite{osman2002design}
+computing environments}\cite{osman2002design}. The author introduce the pod concepts, which 
+consists bunch of processes and a virtualizaion layer on top of the operating system. The purpose
+of processes pod is for processes migrating around different operating systems. The author also 
+show that Zap prototype running with Apache web server and X windows desktop application has 
+subsecond checkpoint and restart latencies.
 
 \medskip
 
 \textbf{Conference Article} \emph{Terra: A virtual machine-based platform for trusted 
 computing}\cite{garfinkel2003terra}. This paper present a flexible platform, which use virtual 
 machine monitor that partition a hardware platform into multiple virtual machine for various
-applications require heterogeneous envrionment. This system can be treated as the prototype of
+applications require heterogeneous environment. This system can be treated as the prototype of
 Amazon EC2 and Google App Engine. It is worth to know what kind of role virtual machine play in 
 this system and can container runtime replace the VM.
 
@@ -141,7 +161,11 @@ work internally by applying namespace isolation facilities.
 
 \medskip
 
-\textbf{Conference Article} \emph{Live Migration of Vritual Machines}\cite{clark2005live}.
+\textbf{Conference Article} \emph{Live Migration of Vritual Machines}\cite{clark2005live}. This is
+one of the most famous paper in Virtual Machines field. In this paper, the author consider the design 
+options of live migration of virtual machine instance on the cluster data center and cluster 
+environment. So far there is no report about live migration of container instances, thus it would be 
+helpful to understand the purpose and implementation details of virtual machines migration. 
 
 \medskip
 
@@ -156,19 +180,26 @@ monitor and how do they influence performance.
 
 \medskip
 
-\textbf{Conference Artictl} \emph{Virtualization for high-performance computing}
-\cite{mergen2006virtualization}.
+\textbf{Conference Article} \emph{Virtualization for high-performance computing}
+\cite{mergen2006virtualization}. This paper discuss the specific demands of HPC environment which 
+often mismatch the solutions provided by legacy operating systems. The author focused on the 
+hardware virtualization with emphasis on HPC environments. Reading this paper is helpful for 
+knowing what specific demands HPC ask for virtualization technology.
 
 \medskip
 
 \textbf{Conference Article} \emph{Container-based Operating System Virtualization
-: a Scalable, High-performance Alternative to Hypervisors}\cite{soltesz2007container}.
+: a Scalable, High-performance Alternative to Hypervisors}\cite{soltesz2007container}. This paper 
+discuss the possibility of replace Hypervisors with Container-based OS virtualization specially 
+for HPC environment. Author explores the features of Linux-VServer with current generations of Xen. 
+The conclusion is that Linux-VServer provide comparable support for isolation and better performance
+than traditional Hypervisors.
 
 \medskip
 
 \textbf{Conference Article} \emph{Quantifying the performance isolation properties of virtualization 
 systems}\cite{matthews2007quantifying}. This paper present a special kind of benchmark, the 
-performance isolation propertis benchmark, which quantifies the degree to which a virtualization
+performance isolation properties benchmark, which quantifies the degree to which a virtualization
 system limits the impact of a misbehaving virtual machine on other well-behaving virtual machines
 running on the same physical machine. The experiment results show that hardware level virtualization
 technology offer complete isolation in all cases, while the results of OS level virtualization 
@@ -178,7 +209,7 @@ one may suffer low isolation performance as well.
 \medskip
 
 \textbf{Conference Article} \emph{kvm: the Linux virtual machine monitor}\cite{kivity2007kvm}. 
-In this paper, the author intorduced the Kernel-based Virtual Machine (kvm), which take advantages of
+In this paper, the author introduced the Kernel-based Virtual Machine (kvm), which take advantages of
 x86 virtualization extension to implement a virtual machine monitor for Linux system. This 
 paper show the general ideas of how to virtualize MMU, I/O, CPU and memory on the Linux system.
 Since we are planning to running the benchmark on Unix like system, reading this paper can help us 
@@ -196,7 +227,11 @@ design principles are worth to refer.
 \medskip
 
 \textbf{Conference Article} \emph{Virtualization vs Containerization To Support PaaS}
-\cite{dua2014virtualization}
+\cite{dua2014virtualization}. In this paper, author explore various container runtime 
+implementations and try to figure out which one can fit the PaaS best. One of the major use
+of container is offering isolated environment for applications running on cloud. By reading 
+this paper, we can understand which performance metric is the important for applying 
+container runtime into cloud environment.
 
 \medskip
 
@@ -210,7 +245,7 @@ read this paper and figure out the solution.
 
 \textbf{Conference Article} \emph{Performance evaluation of container-based virtualization for 
 high performance computing environments}\cite{xavier2013performance}. One of the primary use of
-container technology is to deliever isolation environment for application running on heterogeneous 
+container technology is to deliver isolation environment for application running on heterogeneous 
 cluster. The author of this paper conducting benchmarks on large HPC workflows with various 
 container runtime. This paper is worth reading because it consider the overhead for large 
 cloud applications, which does not show up when running small local benchmark.
@@ -221,7 +256,7 @@ cloud applications, which does not show up when running small local benchmark.
 Empirical Investigation}\cite{morabito2015power}. We would not benchmark the power consumption 
 of virtualization technologies in our project, but the power consumption is a important 
 aspect when lunching application required tens and hundreds of computing nodes. Thus the 
-experiment results of this paper can be a good refernce when consider about large distributed
+experiment results of this paper can be a good reference when consider about large distributed
 application, which we will briefly discuss in our report.
 
 \medskip
