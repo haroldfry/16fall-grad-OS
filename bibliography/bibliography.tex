@@ -78,6 +78,11 @@ is worth reading.
 
 \subsection{Paper from 1990}
 
+\textbf{Conference Article} \emph{Using Microbenchmarks To Evaluate System Performance}
+\cite{bershad1992using}
+
+\medskip
+
 \textbf{Conference Article} \emph{Exokernel: An operating system architecture for application-level 
 resource management}\cite{engler1995exokernel}. This paper introduces the Exokernel system, which 
 expose the hardware level resource management library to the application level. It enable the 
@@ -113,12 +118,30 @@ about running applications on highly virtualized machine.
 
 \medskip
 
+\textbf{Conference Article} \emph{The design and implementation of Zap: A system for migrating 
+computing environments}\cite{osman2002design}
+
+\medskip
+
 \textbf{Conference Article} \emph{Terra: A virtual machine-based platform for trusted 
 computing}\cite{garfinkel2003terra}. This paper present a flexible platform, which use virtual 
 machine monitor that partition a hardware platform into multiple virtual machine for various
 applications require heterogeneous envrionment. This system can be treated as the prototype of
 Amazon EC2 and Google App Engine. It is worth to know what kind of role virtual machine play in 
 this system and can container runtime replace the VM.
+
+\medskip
+
+\textbf{Conference Article} \emph{Solaris Zones: Operating System Support for Consolidating 
+Commercial Workloads}\cite{price2004solaris}. This paper introduce the Solaris Zones, the 
+virtualization technology developed by Sun Microsystems, Inc. As one of the inchoate OS 
+level virtualization runtime, Solaris Zones and Current container runtimes share many common 
+ideas, like namespace isolation. This paper is important for understanding how container 
+work internally by applying namespace isolation facilities.
+
+\medskip
+
+\textbf{Conference Article} \emph{Live Migration of Vritual Machines}\cite{clark2005live}.
 
 \medskip
 
@@ -133,12 +156,13 @@ monitor and how do they influence performance.
 
 \medskip
 
-\textbf{Conference Article} \emph{Solaris Zones: Operating System Support for Consolidating 
-Commercial Workloads}\cite{price2004solaris}. This paper introduce the Solaris Zones, the 
-virtualization technology developed by Sun Microsystems, Inc. As one of the inchoate OS 
-level virtualization runtime, Solaris Zones and Current container runtimes share many common 
-ideas, like namespace isolation. This paper is important for understanding how container 
-work internally by applying namespace isolation facilities.
+\textbf{Conference Artictl} \emph{Virtualization for high-performance computing}
+\cite{mergen2006virtualization}.
+
+\medskip
+
+\textbf{Conference Article} \emph{Container-based Operating System Virtualization
+: a Scalable, High-performance Alternative to Hypervisors}\cite{soltesz2007container}.
 
 \medskip
 
@@ -162,12 +186,17 @@ understand what cause the overhead of running VM.
 
 \subsection{Paper from 2010}
 
-\textbf{Journal Article} \emph{Updated Performance Comparison of Virtual Machines and Linux 
+\textbf{Journal Article} \emph{An Updated Performance Comparison of Virtual Machines and Linux 
 Containers}\cite{felter2014updated}. In this paper, the author compare the performance of 
 native, container(i.e. Docker) and virtual machine environments using recent hardware and common 
 used software. We are planning to conduct same kind of benchmarks on one more configuration
 (i.e. host OS with namespace isolation). This paper is worth to read and several benchmarks 
 design principles are worth to refer.
+
+\medskip
+
+\textbf{Conference Article} \emph{Virtualization vs Containerization To Support PaaS}
+\cite{dua2014virtualization}
 
 \medskip
 
@@ -194,6 +223,13 @@ of virtualization technologies in our project, but the power consumption is a im
 aspect when lunching application required tens and hundreds of computing nodes. Thus the 
 experiment results of this paper can be a good refernce when consider about large distributed
 application, which we will briefly discuss in our report.
+
+\medskip
+
+\textbf{Conference Article} \emph{Hypervisors vs. Lightweight Virtualization: a Performance 
+Comparison}\cite{morabito2015hypervisors}. Another performance benchmark paper. Different than 
+the Felter's paper, author of this paper compare KVM with Docker and LXC. We can compare the 
+results of our benchmarks with the experiment results of this paper.
 
 \medskip
 
