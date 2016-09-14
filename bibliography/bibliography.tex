@@ -68,9 +68,59 @@ In this paper, author describe the principles, implementation details and practi
 generation of virtual machine that is ready to be put into industry field. In order to realize the
 base idea of virtual machine, this paper is worth to study. 
 
+\medskip
+
+\textbf{Journal Article} \emph{Virtual storage and virtual machine concepts}
+\cite{parmelee1972virtual}. This is the one of the earliest paper about virtual machine 
+and virtual storage system. In order to know what cause the overheads of virtual machine, we should
+understand the internal infrastructure of virtual machine and the implementation details. This paper 
+is worth reading.
+
 \subsection{Paper from 1990}
 
+\textbf{Conference Article} \emph{Exokernel: An operating system architecture for application-level 
+resource management}\cite{engler1995exokernel}. This paper introduces the Exokernel system, which 
+expose the hardware level resource management library to the application level. It enable the 
+application to run with customized resource configuration. The idea of this system is quite 
+creative and bold. Will this cause insecure issue of the system? Will the resource be over 
+subscribed? How can an end user know how much resources each application require? The high 
+citation of this paper caught my eye.
+
+\medskip
+
+\textbf{Conference Article} \emph{Hypervisor-based fault tolerance}\cite{bressoud1995hypervisor}.
+This paper presents the idea of implementing a fault-tolerence system that has a replica system 
+managed by virtual machine hypervisor. When the main system is down the replica can be used to 
+replace it. The idea presented in the paper is another use of virtual machine other than 
+resource sharing.
+
+\medskip 
+
+\textbf{Journal Article} \emph{Disco: Running commodity operating systems on scalable 
+multiprocessors}\cite{bugnion1997disco}. This is one of the early paper that introduce the 
+idea of run multiple commodity operating system on a scalable multiprocessor. This paper is 
+important for understanding how to virtualize hardware and running multiple OS on a scalable 
+multiprocessor machine.
+
 \subsection{Paper from 2000}
+
+\textbf{Conference Article} \emph{When virtual is better than real}\cite{chen2001virtual}. This is
+a position paper. Author argues that most applications and OS currently running on a real machine 
+should relocate into a virtual machine. Consider about the overheads of traditional virtual machine,
+it is impossible. But with the arise of container technology, some OS, like CoreOS, is running 
+every application inside a private container. It is interesting to know when did people first think 
+about running applications on highly virtualized machine.
+
+\medskip
+
+\textbf{Conference Article} \emph{Terra: A virtual machine-based platform for trusted 
+computing}\cite{garfinkel2003terra}. This paper present a flexible platform, which use virtual 
+machine monitor that partition a hardware platform into multiple virtual machine for various
+applications require heterogeneous envrionment. This system can be treated as the prototype of
+Amazon EC2 and Google App Engine. It is worth to know what kind of role virtual machine play in 
+this system and can container runtime replace the VM.
+
+\medskip
 
 \textbf{Journal Article} \emph{Virtual machine monitors: Current technology and future trends}
 \cite{rosenblum2005virtual}. This is a survey paper introduces the history and details of virtual 
@@ -93,7 +143,13 @@ work internally by applying namespace isolation facilities.
 \medskip
 
 \textbf{Conference Article} \emph{Quantifying the performance isolation properties of virtualization 
-systems}\cite{matthews2007quantifying}.
+systems}\cite{matthews2007quantifying}. This paper present a special kind of benchmark, the 
+performance isolation propertis benchmark, which quantifies the degree to which a virtualization
+system limits the impact of a misbehaving virtual machine on other well-behaving virtual machines
+running on the same physical machine. The experiment results show that hardware level virtualization
+technology offer complete isolation in all cases, while the results of OS level virtualization 
+technology are varied. Based on this observation, we know that when pursuit low performance overhead 
+one may suffer low isolation performance as well. 
 
 \medskip
 
@@ -124,12 +180,20 @@ read this paper and figure out the solution.
 \medskip
 
 \textbf{Conference Article} \emph{Performance evaluation of container-based virtualization for 
-high performance computing environments}\cite{xavier2013performance}
+high performance computing environments}\cite{xavier2013performance}. One of the primary use of
+container technology is to deliever isolation environment for application running on heterogeneous 
+cluster. The author of this paper conducting benchmarks on large HPC workflows with various 
+container runtime. This paper is worth reading because it consider the overhead for large 
+cloud applications, which does not show up when running small local benchmark.
 
 \medskip
 
 \textbf{Conference Article} \emph{Power Consumption of Virtualization Technologies: an 
-Empirical Investigation}\cite{morabito2015power}
+Empirical Investigation}\cite{morabito2015power}. We would not benchmark the power consumption 
+of virtualization technologies in our project, but the power consumption is a important 
+aspect when lunching application required tens and hundreds of computing nodes. Thus the 
+experiment results of this paper can be a good refernce when consider about large distributed
+application, which we will briefly discuss in our report.
 
 \medskip
 
