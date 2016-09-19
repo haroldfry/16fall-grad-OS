@@ -9,7 +9,7 @@ all: $(NAME).pdf
 
 $(NAME).pdf: $(NAME).tex ${GRAPHS}
 	pdflatex $(NAME)
-	# bibtex $(NAME)
+	bibtex $(NAME)
 	pdflatex $(NAME)
 	pdflatex $(NAME)
 
@@ -20,4 +20,4 @@ $(NAME).pdf: $(NAME).tex ${GRAPHS}
 	convert $< $@
 
 clean:
-	@rm *.aux *.pdf *.log *.out *.bbl *.eps *.blg
+	@rm *.aux *.pdf *.log *.out *.bbl *.blg
