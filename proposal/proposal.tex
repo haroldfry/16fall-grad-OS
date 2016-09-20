@@ -71,9 +71,9 @@ operating system need to be started from scratch, it imposes nonnegligible overh
 with the rise of OS level virtualization, it becomes possible to run various OS on a host system 
 with very low overheads. In this paper, we compare various aspects of system performance between 
 origin namespaces isolation, light weight container runtimes and virtual machines. We also run several
-HPC workflows on Notre Dame disc cluster with Docker container runtime\cite{dockerwb}, 
-Makeflow\cite{albrecht2012makeflow} and Condor\cite{thain2003condor} to check the overheads of 
-light weight container on cluster level.  
+HPC workflows on Notre Dame disc cluster with Docker container runtime\cite{dockerwb}, Linux namespace
+isolation environment, Makeflow\cite{albrecht2012makeflow} and Condor\cite{thain2003condor} to check the 
+overheads of light weight container on cluster level.  
 
 \section{Introduction}
 
@@ -91,19 +91,46 @@ Docker\cite{dockerwb}
 
 \subsection{Virtual Machine}
 
+Virtual Machine\cite{rosenblum2005virtual}
+
 \subsection{Virtualization on HPC}
 
 \section{Related Work}
 
 \section{Proposed Work}
 
+\section{Evaluation}
+
+We evaluate the performance of the lightweight container runtimes from micro and macro aspects. We conducting 
+micro-benchmarks on a ThinkPad T430 machine, which consists of an Intel Core i5-3320M CPU with 16GB RAM, 256GB
+SSD, 1GB Ethernet, running Ubuntu Linux 16.04 with Linux kernel 4.4.0-38-generic. For macro-benchmarks, we use
+Notre Dame CRC disc cluster, The cluster consisted of twenty-four 8-core Intel Xeon E5620 CPUs each with 32GB
+RAM, 12 2TB disks, 1Gb Ethernet, running Red Hat Enterprise Linux 6.8 with Linux kernel 2.6.32-642.4.2.el6.x86\_64.
+
 \subsection{Microbenchmarks}
 
-\subsubsection{System benchmark tools}
+We are going to evaluate the various aspects of system performance between our VLLC, 
+lightweight Linux container and virtual machine. We will apply \textbf{sysbench} to measure the CPU 
+performance and memory bandwidth, \textbf{netperf} to evaluate the network throughput and \textbf{bonnie++} 
+to evaluate disk I/O performance. We expect that the performance difference of CPU, memory and network would 
+be negligiable. While, for the I/O performance we expect to see huge difference between Docker and Host 
+system because of the use of \textbf{aufs} and less difference between Singularity, namespace isolation tool and
+Host system because the first two configurations use local directory as drive.
 
 \subsection{Macrobenchmarks}
 
-\section{Evaluation}
+Based on the previous work\cite{zheng2015integrating}, we plan to run macro-benchmarks on latest version of Makeflow, 
+the HPC workflow management tools with HTCondor framework anduse Burrows-Wheeler Alignment (BWA) 
+bioinformatics workflow, which consist 822 subtasks that can be highly parallelized. We will launch 
+the workflow with VLLC, Docker and origin Makeflow system and compare the overall running time and per-task execution time.
+The expected results would be Workflow launching with Docker can cause considerable overheads compare to workflow
+running with VLLC and host system.
+
+\medskip
+
+Based on the benchmark results, we may be able to reach a conclusion that, lightweight container technologies 
+provided certain level of resource virtualization but it also suffer certain system overheads depends on the level
+of isolation they provided.
 
 \section{Timeline}
 
