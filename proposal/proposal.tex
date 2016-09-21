@@ -72,8 +72,8 @@ with the rise of OS level virtualization, it becomes possible to run various OS 
 with very low overheads. In this paper, we compare various aspects of system performance between 
 origin namespaces isolation, light weight container runtimes and virtual machines. We also run several
 HPC workflows on Notre Dame disc cluster with Docker container runtime\cite{dockerwb}, Linux namespace
-isolation environment, Makeflow\cite{albrecht2012makeflow} and Condor\cite{thain2003condor} to check the 
-overheads of light weight container on cluster level.  
+isolation environment, Makeflow\cite{albrecht2012makeflow} and Condor\cite{thain2003condor} to 
+check the overheads of light weight container on cluster level.  
 
 \section{Introduction}
 
@@ -96,6 +96,31 @@ Virtual Machine\cite{rosenblum2005virtual}
 \subsection{Virtualization on HPC}
 
 \section{Related Work}
+
+Our work related to Micro-level system performance as well as Macro-level performance(i.e. cluster
+level performance) of lightweight container runtimes. Several recent studies are focus on compare 
+the system performance of Hypervisors and Lightweight container on Micro-level. Roberto's 
+paper\cite{morabito2015hypervisors} show the difference of the CPU, memory, network and disk I/O 
+performance between non-virtualization, KVM, LXC, Docker and OSv on a local workstation. The 
+technical paper from IBM\cite{felter2014updated}, not only conducting standar benchmarks on 
+non-virtualization native system, Docker and KVM, but also running two widly used 
+applications(i.e. Linpack, MySQL) with different runtime environments.  
+
+How to employ lightweight containerization to cloud computing platform and clusters management 
+framework has become a hot topic in HPC community recently. Rajdeep's 
+work\cite{dua2014virtualization} discusses how mainstream PaaS vendors apply containerization to 
+hosting apps. It explore the architecture and usage of various container runtimes - Linux 
+Containers, Docker, Warden Container, lmctfy and OpenVZ. Xavier's paper\cite{xavier2013performance}
+compare the performance of several container runtimes with Xen, a commonly used hypervisor-based 
+implementation. The author also conducting benchmark with NPB benchmark suit - an HPC application. 
+Furthormore, the author also show the isolation performance by using Isolation Benchmark Suite(IBS).
+Our previous work\cite{zheng2015integrating} show that launching HPC workflow with 
+different container configurations can highly influence the performance and there is a 
+tradeoff between isolation and performance. 
+
+This object is mainly an extension of some previous work. We will benchmark the performance of our
+own container runtime VLLC and Singularity - a new container runtime specifically designed for HPC.
+And compare them with Docker and Virtualbox.
 
 \section{Proposed Work}
 
