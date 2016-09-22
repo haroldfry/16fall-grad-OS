@@ -89,7 +89,11 @@ Linux Namespace\cite{rosen2013resource}
 
 \subsection{Singularity}
 
-Singularity\cite{singularity} This is a test
+Singularity\cite{singularity} Although namespace can offer certain extent of isonation, applications can only function within the host operating system and thataignificantly limits the usage of the computation resources. Containers are therefore generated. Containers realize virtualization in a fashion that guest operating systems share the Linix kernel of host operating system and retain their own image. Applications on top of the guest oeprating system therefore are quite close to the host operating system which guarantees the performance. 
+
+Singularity is a container based on namespace technology. It's specifically desighed for the purpose of mobility of compute. Singularity creates a container, examines the binary dependencies, and packages up only library or system dependencies needed for guest operating system and applications, applications, and some other tolls into an executable package. Once done that, the container can move from system to system and only requires the Linux kernel.
+
+Singularity is motivated by HPC and therefore it's lightweight, easy to deploy and very portable. 
 
 \subsection{Docker}
 
