@@ -38,7 +38,7 @@
 %	DOCUMENT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title{{\textbf{Virtual Machine vs. Container Runtimes: Performance Comparison}} \\
+\title{{\textbf{Linux Namespace and Containerization: From Micro to Macro Performance Comparison}} \\
        \vspace{3\baselineskip}
        {\large Project proposal} \\
        \vspace{3\baselineskip}
@@ -72,8 +72,8 @@ with the rise of OS level virtualization, it becomes possible to run various OS 
 with very low overheads. In this paper, we compare various aspects of system performance between 
 origin namespaces isolation, light weight container runtimes and virtual machines. We also run several
 HPC workflows on Notre Dame disc cluster with Docker container runtime\cite{dockerwb}, Linux namespace
-isolation environment, Makeflow\cite{albrecht2012makeflow} and Condor\cite{thain2003condor} to 
-check the overheads of light weight container on cluster level.  
+isolation environment, Makeflow\cite{albrecht2012makeflow} Work Queue\cite{bui2011work} and 
+Condor\cite{thain2003condor} to check the overheads of light weight container on cluster level.  
 
 \section{Introduction}
 
@@ -128,6 +128,29 @@ And compare them with Docker and Virtualbox.
 
 \section{Proposed Work}
 
+To show the perofrmance difference of various runtime environments, there are four tasks need to be carried out 
+
+\begin{itemize}
+
+    \item Implement a \textbf{Very Lightweight Linux container(VLLC)}, which provides PID, network and mount 
+        isolation. This VLLC will enable end user to launch a new process in an isolated namespace. The processes 
+        inside the namespace only have the view of inside the namespace.  
+
+    \item Implement a benchmark framework for measuring the CPU, memory, disk I/O and network performance for user 
+        specified runtime environments. By launching the framework in desired environment, it will automatically 
+        generate histograms of system performance. 
+
+    \item Use the benchmark framework mentioned above to measure the system performance of host OS, VLLC, 
+        Sigularity, Docker and OS running in Virtualbox.
+
+    \item Integrate VLLC to Makeflow framework the system architecture are shown in and running a large bioinformatics 
+        workflow as Macro-benchmark to show the performance difference between Host OS, VLLC and Docker.
+
+    %% TODO: Draw a system architecture figure
+
+\end{itemize}
+
+
 \section{Evaluation}
 
 We evaluate the performance of the lightweight container runtimes from micro and macro aspects. We conducting 
@@ -162,6 +185,8 @@ provided certain level of resource virtualization but it also suffer certain sys
 of isolation they provided.
 
 \section{Timeline}
+
+\section{Team Composition and Responsibilities}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
